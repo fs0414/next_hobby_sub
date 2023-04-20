@@ -9,7 +9,7 @@ const Home = () => {
       <Layout>
         <section className={styles.headingMd}>
           <p>index page</p>
-          <Link href="/test">to post</Link>
+          <Link href="/test">to post page</Link>
         </section>
       </Layout>
     </>
