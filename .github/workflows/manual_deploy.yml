@@ -19,6 +19,7 @@ jobs:
 
       - name: Build
         run: yarn build
+        working-directory: ./src
 
       - name: Deploy
         env:
