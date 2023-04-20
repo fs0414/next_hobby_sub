@@ -1,0 +1,26 @@
+@startuml
+actor User
+participant "Controller" as C
+participant "Request" as Req
+participant "Response" as Res
+participant "FetchUserPassword" as FUP
+participant "CompareCheck" as CC
+participant "JWTSign" as JS
+database "Database" as DB
+
+User -> C : Login Request
+C -> Req : Create Request
+Req -> C : Request
+C -> FUP : FetchUserPassword(email)
+FUP -> DB : SELECT password
+DB -> FUP : password
+FUP -> C : existedUserPassword
+C -> CC : CompareCheck(password, existedUserPassword)
+CC -> CC : Compare
+CC -> C : isMatchUser
+C -> JS : JWTSIgn(email)
+JS -> JS : Create Token
+JS -> C : token
+C -> Res : Return Token
+Res -> User : Login Response
+@enduml
