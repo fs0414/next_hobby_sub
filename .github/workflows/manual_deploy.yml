@@ -4,6 +4,9 @@ on: workflow_dispatch
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: "16.20.0"
 
     steps:
       - name: Checkout
