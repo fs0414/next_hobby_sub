@@ -13,13 +13,13 @@ export const Layout = ({ children }: any) => {
         <Link rel="icon" href="/favicon.ico"></Link>
       </Head>
       <header className={styles.header}>
-        <Image
+        {/* <Image
           src="/images/Img01.png"
           className={utilStyles.borderCircle}
           alt={"画像イメージ"}
           width={100}
           height={100}
-        />
+        /> */}
         <h1 className={styles.heading2Xl}>{name}</h1>
       </header>
       <main>{children}</main>
