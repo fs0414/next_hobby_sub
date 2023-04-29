@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  next:
+    container_name: next_container
+    build:
+      context: ./Docker/next
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/home/node/node_hobbys/src
+    environment:
+      - NODE_ENV=development
+    # command: yarn init && yarn install --frozen-lockfile
+    stdin_open: true
+    tty: true
+
+  mysql:
+    container_name: mysql_container
+    build: ./Docker/mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - next-db-volume:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: nextUser
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: next_db
+
+volumes:
+  next-db-volume:
