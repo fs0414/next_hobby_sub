@@ -1,5 +1,5 @@
 name: Manually deploy next_hobby
-on :workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   deploy:
@@ -12,7 +12,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
 
       - name: Install Dependencies
         run: yarn install
